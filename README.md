@@ -53,5 +53,86 @@ process FASTP {
           --json ${sample_id}.json \
           --html ${sample_id}.html
     """
+} 
+```
+
+### 2. Mapping Reads to Reference Genome
+
+The cleaned FASTQ files are aligned to a reference genome using `bwa`, and the pipeline converts the SAM file into BAM format, sorts it, and indexes it for further analysis.
+
+#### Code Snippet:
+```nextflow
+process INDEX {
+    input:
+    path transcriptome
+
+    output:
+    path "genome*"
+
+    script:
+    """
+    bwa index $transcriptome
+    """
 }
 
+process MAPPING {
+    tag "BWA on $sample_id"
+    publishDir params.outdir, mode: 'copy'
+
+    input:
+    tuple val(sample_id), path(reads1), path(reads2)
+    path index
+
+    output:
+    path "${sample_id}.sam"
+
+    script:
+    """
+    bwa mem ${params.transcriptome_file} ${reads1} ${reads2} > ${sample_id}.sam
+    """
+}
+```
+
+The BAM file is generated, sorted, and indexed for variant calling:
+
+#### Code Snippet:
+```nextflow
+process BAMCONVERT {
+    input:
+    path sam_file
+
+    output:
+    path "${sam_file.baseName}.bam"
+
+    script:
+    """
+    samtools view -h -S -b -o ${sam_file.baseName}.bam ${sam_file}
+    """
+}
+
+process BAMSORT {
+    input:
+    path bam_file
+
+    output:
+    path "${bam_file.baseName}_sorted.bam"
+
+    script:
+    """
+    samtools sort ${bam_file} -o ${bam_file.baseName}_sorted.bam
+    """
+}
+
+process BAMINDEX {
+    input:
+    path sorted_bam_file
+
+    output:
+    path "${sorted_bam_file.baseName}.bam.bai"
+
+    script:
+    """
+    samtools index ${sorted_bam_file}
+    """
+}
+```
