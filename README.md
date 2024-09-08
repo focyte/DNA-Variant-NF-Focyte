@@ -12,7 +12,6 @@ Welcome to this **FOCYTE Pipeline** repository! This pipeline is designed to pro
     - [Mapping Reads to Reference Genome](#mapping-reads-to-reference-genome)
     - [Variant Calling](#variant-calling)
 3. [How to Run](#how-to-run)
-4. [Requirements](#requirements)
 
 ---
 
@@ -59,6 +58,8 @@ process FASTP {
 ### Mapping Reads to Reference Genome
 
 The cleaned FASTQ files are aligned to a reference genome using `bwa`, and the pipeline converts the SAM file into BAM format, sorts it, and indexes it for further analysis.
+
+The genome is indexed and this is used to align the trimmed reads from the Process pipeline to generate files in SAM format.
 
 #### Code Snippet:
 ```nextflow
