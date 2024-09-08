@@ -9,8 +9,8 @@ Welcome to this **FOCYTE Pipeline** repository! This pipeline is designed to pro
 1. [Overview](#overview)
 2. [Pipeline Stages](#pipeline-stages)
     - [FASTQ Quality Control](#1-fastq-quality-control)
-    - [Mapping Reads to Reference Genome](#2mapping-reads-to-reference-genome)
-    - [Variant Calling](#3variant-calling)
+    - [Mapping Reads to Reference Genome](#1mapping-reads-to-reference-genome)
+    - [Variant Calling](#1variant-calling)
 3. [How to Run](#how-to-run)
 4. [Requirements](#requirements)
 
