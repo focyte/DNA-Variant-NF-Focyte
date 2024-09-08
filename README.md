@@ -26,7 +26,7 @@ The pipeline processes paired-end FASTQ files and generates a VCF file containin
 
 ## Pipeline Stages
 
-### 1. FASTQ Quality Control
+### FASTQ Quality Control
 
 This process uses the tool `fastp` to clean and trim raw FASTQ files, generating high-quality reads for downstream analysis. Each sample's paired-end reads are taken as input, and the output includes:
 - Trimmed FASTQ files
@@ -56,7 +56,7 @@ process FASTP {
 } 
 ```
 
-### 2. Mapping Reads to Reference Genome
+### Mapping Reads to Reference Genome
 
 The cleaned FASTQ files are aligned to a reference genome using `bwa`, and the pipeline converts the SAM file into BAM format, sorts it, and indexes it for further analysis.
 
