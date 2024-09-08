@@ -136,3 +136,37 @@ process BAMINDEX {
     """
 }
 ```
+
+### Variant Calling
+
+In this stage, variants are called using `bcftools`. The pipeline uses `mpileup` to create a BCF file, which is then processed to generate a VCF file with the called variants.
+
+#### Code Snippet:
+```nextflow
+process BCFPILEUP {
+    input:
+    path flagged_bam_file
+    path index
+
+    output:
+    path "${flagged_bam_file.baseName}.bcf"
+
+    script:
+    """
+    bcftools mpileup -O b -o ${flagged_bam_file.baseName}.bcf -f ${params.transcriptome_file} ${flagged_bam_file}
+    """
+}
+
+process BCFCALL {
+    input:
+    path flagged_bcf_file
+
+    output:
+    path "${flagged_bcf_file.baseName}.vcf"
+
+    script:
+    """
+    bcftools call --ploidy 1 -m -v -o ${flagged_bcf_file.baseName}.vcf ${flagged_bcf_file}
+    """
+}
+```
