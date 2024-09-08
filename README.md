@@ -187,7 +187,7 @@ In ref-genome, place a FASTA file of your genome of interest
 Create your conda environment containing the required tools and dependencies by loading the .yml file:
 
 ```console
-conda env create -f atacseq.yml
+conda env create -f variant.yml
 ```
 
 Run the Procss.nf pipeline:
