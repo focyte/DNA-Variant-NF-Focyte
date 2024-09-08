@@ -170,3 +170,37 @@ process BCFCALL {
     """
 }
 ```
+
+### How to Run
+
+Clone this repository and navigate to the directory
+Within your project directory create the following folders:
+
+```console
+mkdir ./data/ref-genome
+```
+
+In data, place your paired .fastq files for analysis
+In ref-genome, place a FASTA file of your genome of interest
+
+Create your conda environment containing the required tools and dependencies by loading the .yml file:
+
+```console
+conda env create -f atacseq.yml
+```
+
+Run the Procss.nf pipeline:
+
+```console
+nextflow Process.nf
+```
+
+Check the read quailty after trimming
+
+Run the MapCall.nf pipeline:
+
+```console
+nextflow MapCall.nf
+```
+
+
