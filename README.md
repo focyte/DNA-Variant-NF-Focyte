@@ -207,7 +207,7 @@ nextflow MapCall.nf
 
 ### Results
 
-Clinical isolates from patients with SARS-CoV-2 infection collected by The COVID-19 Genomics UK (COG-UK) – Consortium were obtained from The European Nucleotide Archive https://www.ebi.ac.uk/ena/browser/view/PRJEB37886?show=analyses. Eight samples were randomly selected for variant calling compared to the Wuhan-Hu-1 sequence GCA_009858895.3 https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_009858895.2/.
+Clinical isolates from patients with SARS-CoV-2 infection collected by The COVID-19 Genomics UK (COG-UK) – Consortium were obtained from [The European Nucleotide Archive](https://www.ebi.ac.uk/ena/browser/view/PRJEB37886?show=analyses). Eight samples were randomly selected for variant calling compared to the [Wuhan-Hu-1 sequence GCA_009858895.3](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_009858895.2/) using this pipeline.
 
 VCF files were visualised against the Wuhan-Hu-1 genome assembly in IGV:
 
