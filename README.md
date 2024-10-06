@@ -12,6 +12,7 @@ Welcome to this **FOCYTE Pipeline** repository! This pipeline is designed to pro
     - [Mapping Reads to Reference Genome](#mapping-reads-to-reference-genome)
     - [Variant Calling](#variant-calling)
 3. [How to Run](#how-to-run)
+4. [Results](#results)
 
 ---
 
@@ -204,4 +205,10 @@ Run the MapCall.nf pipeline:
 nextflow MapCall.nf
 ```
 
+### Results
 
+Clinical isolates from patients with SARS-CoV-2 infection collected by The COVID-19 Genomics UK (COG-UK) – Consortium were obtained from The European Nucleotide Archive https://www.ebi.ac.uk/ena/browser/view/PRJEB37886?show=analyses. Eight samples were randomly selected for variant calling compared to the Wuhan-Hu-1 sequence GCA_009858895.3 https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_009858895.2/.
+
+VCF files were visualised against the Wuhan-Hu-1 genome assembly in IGV:
+
+![IGV](https://github.com/focyte/nf-DNA-Variants/blob/main/SARS-CoV-2.png?raw=true)
