@@ -1,4 +1,4 @@
-# DNA-Variant-NF-Focyte
+# DNA Variant Analysis Pipeline
 A Nextflow pipeline for processing and calling of variants: FASTQ to VCF
 
 Welcome to this **FOCYTE Pipeline** repository! This pipeline is designed to process FASTQ files, perform quality control, align reads to a reference genome, and call genetic variants. The workflow uses [Nextflow](https://www.nextflow.io/) to orchestrate the different steps of the analysis. Below you'll find details about the stages involved in this pipeline along with usage instructions.
